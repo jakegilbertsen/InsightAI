@@ -1,0 +1,13 @@
+Flask==2.0.3
+pandas==1.3.4
+numpy==1.21.4
+scikit-learn==0.24.2
+matplotlib==3.4.3
+seaborn==0.11.2
+gunicorn==20.1.0
+Jinja2==3.0.3
+Werkzeug==2.0.2
+joblib==1.1.0
+tensorflow==2.6.0  # or replace with pytorch if preferred
+plotly==5.3.1
+scipy==1.7.1
