@@ -22,9 +22,3 @@ InsightAI is a web-based analytics dashboard leveraging machine learning to prov
 - Python 3.x
 - pip
 
-### Installation
-Clone the repository and install the dependencies:
-```bash
-git clone <repository-url>
-cd InsightAI
-pip install -r requirements.txt
