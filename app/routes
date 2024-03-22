@@ -1,0 +1,45 @@
+from flask import render_template, request, jsonify
+from app import app
+from app.utils import process_data, generate_insights
+import os
+
+@app.route('/')
+def index():
+    """Render the main dashboard page."""
+    return render_template('index.html')
+
+@app.route('/upload', methods=['POST'])
+def upload_data():
+    """Endpoint to upload data files and trigger data processing."""
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part'}), 400
+
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
+
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(filepath)
+        process_data(filepath)  # Placeholder for your data processing function
+        return jsonify({'message': 'File successfully uploaded'}), 200
+
+    return jsonify({'error': 'File not allowed'}), 400
+
+@app.route('/insights', methods=['GET'])
+def insights():
+    """Endpoint to display the machine learning insights."""
+    # This could be pulling results from your ML model or processing pipeline
+    results = generate_insights()
+    return render_template('insights.html', results=results)
+
+def allowed_file(filename):
+    """Check if the file type is allowed."""
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+
+# Utility functions such as 'process_data' and 'generate_insights' should be 
+# implemented in the app/utils.py module. They are placeholders here for 
+# functionality such as processing uploaded data and generating insights from 
+# your machine learning models.
