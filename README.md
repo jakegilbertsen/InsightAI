@@ -1,0 +1,30 @@
+@ -0,0 +1,29 @@
+# InsightAI
+
+## Project Overview
+InsightAI is a web-based analytics dashboard leveraging machine learning to provide valuable insights from data. It features data ingestion, machine learning model pipelines, real-time analytics, and interactive visualizations.
+
+## Features
+- **Data Ingestion Module**: Upload datasets or connect to live data feeds for real-time data streaming.
+- **Data Processing Pipeline**: Scripts and pipelines for cleaning, preprocessing, and transforming data.
+- **Machine Learning Model**: Analyze data using predictive models, clustering, anomaly detection, etc.
+- **Interactive Dashboard**: A web-based dashboard using Flask, HTML, CSS, and JavaScript with visualization libraries for data insights.
+
+## Technologies Used
+- Backend: Python, Flask
+- Frontend: HTML, CSS, JavaScript
+- Data Science: Pandas, NumPy, Scikit-Learn, TensorFlow/PyTorch
+- Visualization: Plotly, D3.js
+
+## Getting Started
+
+### Prerequisites
+- Python 3.x
+- pip
+
+### Installation
+Clone the repository and install the dependencies:
+```bash
+git clone <repository-url>
+cd InsightAI
+pip install -r requirements.txt
